@@ -90,7 +90,7 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     }
   }
 
-  public async fetTokenByDuration(
+  public async fetchTokenByDuration(
     params: DurationParams
   ): Promise<TokenResponse[]> {
     try {
@@ -104,7 +104,7 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     }
   }
 
-  public async fetTokenByMarketCap(
+  public async fetchTokenByMarketCap(
     params: MarketCapParams
   ): Promise<TokenResponse[]> {
     try {
