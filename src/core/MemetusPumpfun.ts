@@ -12,16 +12,16 @@ import {
   MINT_ADDRESS,
   MINTS,
   SIGNATURE,
-} from "src/shared/constants/endpoint";
+} from "../shared/constants/endpoint";
 import {
   CreatorsParams,
   DurationParams,
   InitializerParams,
   MarketCapParams,
   MetadataParams,
-} from "src/shared/types/params";
-import { toQueryString } from "src/shared/utils/query";
-import { TokenResponse } from "src/shared/types/response";
+} from "../shared/types/params";
+import { toQueryString } from "../shared/utils/query";
+import { TokenResponse } from "../shared/types/response";
 
 export class MemetusPumpfun implements IMemetusPumpfun {
   private readonly client: AxiosInstance;
