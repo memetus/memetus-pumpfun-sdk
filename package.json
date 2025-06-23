@@ -1,16 +1,17 @@
 {
-  "name": "memetus-pumpfun-sdk",
+  "name": "@0xobedient/memetus-pumpfun-sdk",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/memetus/memetus-pumpfun-sdk.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "0xobedient",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/memetus/memetus-pumpfun-sdk/issues"
@@ -26,5 +27,8 @@
   },
   "dependencies": {
     "axios": "^1.10.0"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
