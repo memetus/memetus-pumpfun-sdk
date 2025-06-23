@@ -21,6 +21,7 @@ import {
   MetadataParams,
 } from "src/shared/types/params";
 import { toQueryString } from "src/shared/utils/query";
+import { TokenResponse } from "src/shared/types/response";
 
 export class MemetusPumpfun implements IMemetusPumpfun {
   private readonly client: AxiosInstance;
@@ -31,47 +32,53 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     });
   }
 
-  public async fetchTokenByAddress(mint: string) {
+  public async fetchTokenByAddress(mint: string): Promise<TokenResponse> {
     try {
       const response = await this.client.get(MINT_ADDRESS + mint);
 
       return response.data;
     } catch (error) {
-      return error;
+      throw error;
     }
   }
 
-  public async fetchTokenByCreator(account: string) {
+  public async fetchTokenByCreator(account: string): Promise<TokenResponse> {
     try {
       const response = await this.client.get(CREATOR_ADDRESS + account);
 
       return response.data;
     } catch (error) {
-      return error;
+      throw error;
     }
   }
 
-  public async fetchTokenByInitializer(account: string) {
+  public async fetchTokenByInitializer(
+    account: string
+  ): Promise<TokenResponse> {
     try {
       const response = await this.client.get(INITIALIZER_ADDRESS + account);
 
       return response.data;
     } catch (error) {
-      return error;
+      throw error;
     }
   }
 
-  public async fetchTokenBySignature(signature: string) {
+  public async fetchTokenBySignature(
+    signature: string
+  ): Promise<TokenResponse> {
     try {
       const response = await this.client.get(SIGNATURE + signature);
 
       return response.data;
     } catch (error) {
-      return error;
+      throw error;
     }
   }
 
-  public async fetchTokenByMetadata(params: MetadataParams) {
+  public async fetchTokenByMetadata(
+    params: MetadataParams
+  ): Promise<TokenResponse[]> {
     try {
       let query = toQueryString(params);
 
@@ -79,11 +86,13 @@ export class MemetusPumpfun implements IMemetusPumpfun {
 
       return response.data;
     } catch (error) {
-      return error;
+      throw error;
     }
   }
 
-  public async fetTokenByDuration(params: DurationParams) {
+  public async fetTokenByDuration(
+    params: DurationParams
+  ): Promise<TokenResponse[]> {
     try {
       let query = toQueryString(params);
 
@@ -91,11 +100,13 @@ export class MemetusPumpfun implements IMemetusPumpfun {
 
       return response.data;
     } catch (error) {
-      return error;
+      throw error;
     }
   }
 
-  public async fetTokenByMarketCap(params: MarketCapParams) {
+  public async fetTokenByMarketCap(
+    params: MarketCapParams
+  ): Promise<TokenResponse[]> {
     try {
       let query = toQueryString(params);
 
@@ -103,11 +114,13 @@ export class MemetusPumpfun implements IMemetusPumpfun {
 
       return response.data;
     } catch (error) {
-      return error;
+      throw error;
     }
   }
 
-  public async fetchTokensByAddresses(addresses: string[]) {
+  public async fetchTokensByAddresses(
+    addresses: string[]
+  ): Promise<TokenResponse[]> {
     try {
       const response = await this.client.post(MINTS, {
         addresses,
@@ -115,11 +128,13 @@ export class MemetusPumpfun implements IMemetusPumpfun {
 
       return response.data;
     } catch (error) {
-      return error;
+      throw error;
     }
   }
 
-  public async fetchTokensByCreators(params: CreatorsParams) {
+  public async fetchTokensByCreators(
+    params: CreatorsParams
+  ): Promise<TokenResponse[]> {
     try {
       const response = await this.client.post(CREATORS, {
         ...params,
@@ -127,11 +142,13 @@ export class MemetusPumpfun implements IMemetusPumpfun {
 
       return response.data;
     } catch (error) {
-      return error;
+      throw error;
     }
   }
 
-  public async fetchTokensByInitializer(params: InitializerParams) {
+  public async fetchTokensByInitializer(
+    params: InitializerParams
+  ): Promise<TokenResponse[]> {
     try {
       const response = await this.client.post(INITIALIZERS, {
         params,
@@ -139,7 +156,7 @@ export class MemetusPumpfun implements IMemetusPumpfun {
 
       return response.data;
     } catch (error) {
-      return error;
+      throw error;
     }
   }
 }
