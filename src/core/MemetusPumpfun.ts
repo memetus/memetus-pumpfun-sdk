@@ -107,7 +107,7 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     }
   }
 
-  public async fetchTokenByMetadata(
+  public async fetchTokensByMetadata(
     params: MetadataParams
   ): Promise<TokenResponse[]> {
     try {
@@ -121,7 +121,7 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     }
   }
 
-  public async fetchTokenByDuration(
+  public async fetchTokensByDuration(
     params: DurationParams
   ): Promise<TokenResponse[]> {
     try {
@@ -135,7 +135,7 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     }
   }
 
-  public async fetchTokenByMarketCap(
+  public async fetchTokensByMarketCap(
     params: MarketCapParams
   ): Promise<TokenResponse[]> {
     try {
@@ -177,7 +177,7 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     }
   }
 
-  public async fetchTokensByInitializer(
+  public async fetchTokensByInitializers(
     params: InitializerParams
   ): Promise<TokenResponse[]> {
     try {
