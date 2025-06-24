@@ -4,9 +4,9 @@
 
 **Memetus-Pumpfun-SDK** provides a feature that allows user to query tokens created within the last 24 hours on Pumpfun using various parameters.
 
-![npm](https://www.npmjs.com/package/@0xobedient/memetus-pumpfun-sdk)
-![github](https://github.com/memetus/memetus-pumpfun-sdk)
-![download](https://github.com/memetus/memetus-pumpfun-sdk/releases)
+[npm](https://www.npmjs.com/package/@0xobedient/memetus-pumpfun-sdk)
+[github](https://github.com/memetus/memetus-pumpfun-sdk)
+[download](https://github.com/memetus/memetus-pumpfun-sdk/releases)
 
 ---
 
