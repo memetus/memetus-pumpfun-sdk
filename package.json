@@ -1,6 +1,6 @@
 {
   "name": "@0xobedient/memetus-pumpfun-sdk",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -10,7 +10,15 @@
     "type": "git",
     "url": "git+https://github.com/memetus/memetus-pumpfun-sdk.git"
   },
-  "keywords": [],
+  "keywords": [
+    "solana",
+    "blockchain",
+    "web3",
+    "memecoin",
+    "pumpfun",
+    "ai",
+    "agent"
+  ],
   "author": "0xobedient",
   "license": "ISC",
   "bugs": {
