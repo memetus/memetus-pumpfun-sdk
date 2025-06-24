@@ -1,6 +1,10 @@
 export const BASE_ENDPOINT: string =
   "https://solana-pumpfun-trencher.memetus.asia";
 
+export const RECENTS: string = "/api/token/recent";
+
+export const OLDESTS: string = "/api/token/oldest";
+
 export const MINT_ADDRESS: string = "/api/token/mint/";
 
 export const CREATOR_ADDRESS: string = "/api/token/creator/";

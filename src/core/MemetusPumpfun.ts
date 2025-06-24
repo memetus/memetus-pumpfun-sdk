@@ -11,6 +11,8 @@ import {
   METADATA,
   MINT_ADDRESS,
   MINTS,
+  OLDESTS,
+  RECENTS,
   SIGNATURE,
 } from "../shared/constants/endpoint";
 import {
@@ -19,6 +21,7 @@ import {
   InitializerParams,
   MarketCapParams,
   MetadataParams,
+  RecentsParams,
 } from "../shared/types/params";
 import { toQueryString } from "../shared/utils/query";
 import { TokenResponse } from "../shared/types/response";
@@ -30,6 +33,34 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     this.client = axios.create({
       baseURL: BASE_ENDPOINT,
     });
+  }
+
+  public async fetchRecentTokens(
+    params: RecentsParams
+  ): Promise<TokenResponse[]> {
+    try {
+      let query = toQueryString(params);
+
+      const response = await this.client.get(RECENTS + query);
+
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  public async fetchOldestTokens(
+    params: RecentsParams
+  ): Promise<TokenResponse[]> {
+    try {
+      let query = toQueryString(params);
+
+      const response = await this.client.get(OLDESTS + query);
+
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
   }
 
   public async fetchTokenByAddress(mint: string): Promise<TokenResponse> {

@@ -1,4 +1,19 @@
-export type TParams<T = MetadataParams | DurationParams | MarketCapParams> = T;
+export type TParams<
+  T =
+    | MetadataParams
+    | DurationParams
+    | MarketCapParams
+    | RecentsParams
+    | OldestsParams
+> = T;
+
+export type RecentsParams = {
+  limit?: number;
+};
+
+export type OldestsParams = {
+  limit?: number;
+};
 
 export type MetadataParams = {
   name?: string;
