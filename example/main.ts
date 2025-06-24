@@ -4,7 +4,7 @@ const main = async () => {
   const memetusClient = new MemetusPumpfun();
 
   const res = await memetusClient.fetchTokenByAddress(
-    "8rfZYDPRVBbTky7ZeS69sWXrXzwkQdeCAAMtBckPpump"
+    "7h47P3b173g1nRrtqYNRY9nYwuVcAbM9rtB3DXNypump"
   );
 
   console.log(res);
