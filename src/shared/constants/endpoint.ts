@@ -1,5 +1,5 @@
 export const BASE_ENDPOINT: string =
-  "https://solana-pumpfun-trencher.memetus.asia";
+  "https://solana-token-trencher.memetus.asia";
 
 export const RECENTS: string = "/api/token/recent";
 
