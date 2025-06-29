@@ -1,4 +1,3 @@
-import axios, { AxiosInstance } from "axios";
 import { IMemetusPumpfun } from "./IMemetusPumpfun";
 import {
   BASE_ENDPOINT,
@@ -27,13 +26,7 @@ import { toQueryString } from "../shared/utils/query";
 import { TokenResponse } from "../shared/types/response";
 
 export class MemetusPumpfun implements IMemetusPumpfun {
-  private readonly client: AxiosInstance;
-
-  constructor() {
-    this.client = axios.create({
-      baseURL: BASE_ENDPOINT,
-    });
-  }
+  constructor() {}
 
   public async fetchRecentTokens(
     params: RecentsParams
@@ -41,9 +34,9 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     try {
       let query = toQueryString(params);
 
-      const response = await this.client.get(RECENTS + query);
+      const response = await fetch(BASE_ENDPOINT + RECENTS + query);
 
-      return response.data;
+      return response.json() as Promise<TokenResponse[]>;
     } catch (error) {
       throw error;
     }
@@ -55,9 +48,9 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     try {
       let query = toQueryString(params);
 
-      const response = await this.client.get(OLDESTS + query);
+      const response = await fetch(BASE_ENDPOINT + OLDESTS + query);
 
-      return response.data;
+      return response.json() as Promise<TokenResponse[]>;
     } catch (error) {
       throw error;
     }
@@ -65,9 +58,9 @@ export class MemetusPumpfun implements IMemetusPumpfun {
 
   public async fetchTokenByAddress(mint: string): Promise<TokenResponse> {
     try {
-      const response = await this.client.get(MINT_ADDRESS + mint);
+      const response = await fetch(BASE_ENDPOINT + MINT_ADDRESS + mint);
 
-      return response.data;
+      return response.json() as Promise<TokenResponse>;
     } catch (error) {
       throw error;
     }
@@ -75,9 +68,9 @@ export class MemetusPumpfun implements IMemetusPumpfun {
 
   public async fetchTokenByCreator(account: string): Promise<TokenResponse> {
     try {
-      const response = await this.client.get(CREATOR_ADDRESS + account);
+      const response = await fetch(BASE_ENDPOINT + CREATOR_ADDRESS + account);
 
-      return response.data;
+      return response.json() as Promise<TokenResponse>;
     } catch (error) {
       throw error;
     }
@@ -87,9 +80,11 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     account: string
   ): Promise<TokenResponse> {
     try {
-      const response = await this.client.get(INITIALIZER_ADDRESS + account);
+      const response = await fetch(
+        BASE_ENDPOINT + INITIALIZER_ADDRESS + account
+      );
 
-      return response.data;
+      return response.json() as Promise<TokenResponse>;
     } catch (error) {
       throw error;
     }
@@ -99,9 +94,9 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     signature: string
   ): Promise<TokenResponse> {
     try {
-      const response = await this.client.get(SIGNATURE + signature);
+      const response = await fetch(BASE_ENDPOINT + SIGNATURE + signature);
 
-      return response.data;
+      return response.json() as Promise<TokenResponse>;
     } catch (error) {
       throw error;
     }
@@ -113,9 +108,9 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     try {
       let query = toQueryString(params);
 
-      const response = await this.client.get(METADATA + query);
+      const response = await fetch(BASE_ENDPOINT + METADATA + query);
 
-      return response.data;
+      return response.json() as Promise<TokenResponse[]>;
     } catch (error) {
       throw error;
     }
@@ -127,9 +122,9 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     try {
       let query = toQueryString(params);
 
-      const response = await this.client.get(DURATION + query);
+      const response = await fetch(BASE_ENDPOINT + DURATION + query);
 
-      return response.data;
+      return response.json() as Promise<TokenResponse[]>;
     } catch (error) {
       throw error;
     }
@@ -141,9 +136,9 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     try {
       let query = toQueryString(params);
 
-      const response = await this.client.get(MARKET_CAP + query);
+      const response = await fetch(BASE_ENDPOINT + MARKET_CAP + query);
 
-      return response.data;
+      return response.json() as Promise<TokenResponse[]>;
     } catch (error) {
       throw error;
     }
@@ -153,11 +148,17 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     addresses: string[]
   ): Promise<TokenResponse[]> {
     try {
-      const response = await this.client.post(MINTS, {
-        addresses,
+      const response = await fetch(BASE_ENDPOINT + MINTS, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          addresses,
+        }),
       });
 
-      return response.data;
+      return response.json() as Promise<TokenResponse[]>;
     } catch (error) {
       throw error;
     }
@@ -167,11 +168,17 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     params: CreatorsParams
   ): Promise<TokenResponse[]> {
     try {
-      const response = await this.client.post(CREATORS, {
-        ...params,
+      const response = await fetch(BASE_ENDPOINT + CREATORS, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...params,
+        }),
       });
 
-      return response.data;
+      return response.json() as Promise<TokenResponse[]>;
     } catch (error) {
       throw error;
     }
@@ -181,11 +188,17 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     params: InitializerParams
   ): Promise<TokenResponse[]> {
     try {
-      const response = await this.client.post(INITIALIZERS, {
-        params,
+      const response = await fetch(INITIALIZERS, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...params,
+        }),
       });
 
-      return response.data;
+      return response.json() as Promise<TokenResponse[]>;
     } catch (error) {
       throw error;
     }

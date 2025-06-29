@@ -1,11 +1,12 @@
 {
   "name": "@0xobedient/memetus-pumpfun-sdk",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc"
   },
+  "exports": "./dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/memetus/memetus-pumpfun-sdk.git"
@@ -32,9 +33,6 @@
     "tsconfig-paths": "^4.2.0",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3"
-  },
-  "dependencies": {
-    "axios": "^1.10.0"
   },
   "files": [
     "dist"
