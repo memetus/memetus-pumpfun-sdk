@@ -10,7 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@0xobedient/memetus-pumpfun-sdk": "^1.0.4"
+    "@0xobedient/memetus-pumpfun-sdk": "^1.0.9"
   },
   "devDependencies": {
     "@types/node": "^24.0.3",
