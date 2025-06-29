@@ -36,7 +36,7 @@ export class MemetusPumpfun implements IMemetusPumpfun {
 
       const response = await fetch(BASE_ENDPOINT + RECENTS + query);
 
-      return response.json() as Promise<TokenResponse[]>;
+      return (await response.json()) as Promise<TokenResponse[]>;
     } catch (error) {
       throw error;
     }
@@ -50,7 +50,7 @@ export class MemetusPumpfun implements IMemetusPumpfun {
 
       const response = await fetch(BASE_ENDPOINT + OLDESTS + query);
 
-      return response.json() as Promise<TokenResponse[]>;
+      return (await response.json()) as Promise<TokenResponse[]>;
     } catch (error) {
       throw error;
     }
@@ -60,7 +60,7 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     try {
       const response = await fetch(BASE_ENDPOINT + MINT_ADDRESS + mint);
 
-      return response.json() as Promise<TokenResponse>;
+      return (await response.json()) as Promise<TokenResponse>;
     } catch (error) {
       throw error;
     }
@@ -70,7 +70,7 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     try {
       const response = await fetch(BASE_ENDPOINT + CREATOR_ADDRESS + account);
 
-      return response.json() as Promise<TokenResponse>;
+      return (await response.json()) as Promise<TokenResponse>;
     } catch (error) {
       throw error;
     }
@@ -84,7 +84,7 @@ export class MemetusPumpfun implements IMemetusPumpfun {
         BASE_ENDPOINT + INITIALIZER_ADDRESS + account
       );
 
-      return response.json() as Promise<TokenResponse>;
+      return (await response.json()) as Promise<TokenResponse>;
     } catch (error) {
       throw error;
     }
@@ -96,7 +96,7 @@ export class MemetusPumpfun implements IMemetusPumpfun {
     try {
       const response = await fetch(BASE_ENDPOINT + SIGNATURE + signature);
 
-      return response.json() as Promise<TokenResponse>;
+      return (await response.json()) as Promise<TokenResponse>;
     } catch (error) {
       throw error;
     }
@@ -110,7 +110,7 @@ export class MemetusPumpfun implements IMemetusPumpfun {
 
       const response = await fetch(BASE_ENDPOINT + METADATA + query);
 
-      return response.json() as Promise<TokenResponse[]>;
+      return (await response.json()) as Promise<TokenResponse[]>;
     } catch (error) {
       throw error;
     }
@@ -124,7 +124,7 @@ export class MemetusPumpfun implements IMemetusPumpfun {
 
       const response = await fetch(BASE_ENDPOINT + DURATION + query);
 
-      return response.json() as Promise<TokenResponse[]>;
+      return (await response.json()) as Promise<TokenResponse[]>;
     } catch (error) {
       throw error;
     }
@@ -138,7 +138,7 @@ export class MemetusPumpfun implements IMemetusPumpfun {
 
       const response = await fetch(BASE_ENDPOINT + MARKET_CAP + query);
 
-      return response.json() as Promise<TokenResponse[]>;
+      return (await response.json()) as Promise<TokenResponse[]>;
     } catch (error) {
       throw error;
     }
@@ -158,7 +158,7 @@ export class MemetusPumpfun implements IMemetusPumpfun {
         }),
       });
 
-      return response.json() as Promise<TokenResponse[]>;
+      return (await response.json()) as Promise<TokenResponse[]>;
     } catch (error) {
       throw error;
     }
@@ -178,7 +178,7 @@ export class MemetusPumpfun implements IMemetusPumpfun {
         }),
       });
 
-      return response.json() as Promise<TokenResponse[]>;
+      return (await response.json()) as Promise<TokenResponse[]>;
     } catch (error) {
       throw error;
     }
@@ -198,7 +198,7 @@ export class MemetusPumpfun implements IMemetusPumpfun {
         }),
       });
 
-      return response.json() as Promise<TokenResponse[]>;
+      return (await response.json()) as Promise<TokenResponse[]>;
     } catch (error) {
       throw error;
     }
